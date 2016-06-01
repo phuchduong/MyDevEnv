@@ -1,0 +1,36 @@
+// Go to Preferences -> Browse Packages... 
+// and create a directory tree User/SublimeREPL/config/R. 
+// In that directory, create a new file named Main.sublime-menu 
+// with the following contents:
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open",
+                 "caption": "Rterm",
+                 "id": "repl_r",
+                 "mnemonic": "r",
+                 "args": {
+                    "type": "subprocess",
+                    "external_id": "r",
+                    "additional_scopes": ["tex.latex.knitr"],
+                    "encoding": {"windows": "$win_cmd_encoding"},
+                    "soft_quit": "\nquit(save=\"no\")\n",
+                    "cmd": {"windows": ["C:/Program Files/R/R-3.3.0/bin/x64/Rterm.exe", "--ess", "--encoding=$win_cmd_encoding"]},
+                    "cwd": "$file_path",
+                    "extend_env": {"windows": {"PATH": "{PATH}:/C/Program Files/R/R-3.0.2/bin/"}},
+                    "cmd_postfix": "\n",
+                    "suppress_echo": {"windows": false},
+                    "syntax": "Packages/R/R.tmLanguage"
+                    }
+                }
+            ]
+        }]
+    }
+]
